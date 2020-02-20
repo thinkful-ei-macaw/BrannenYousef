@@ -3,7 +3,7 @@
 
 
 function getDogImage() {
-  fetch(`https://dog.ceo/api/breeds/image/random/${numberSelection()}`)
+  fetch(`https://dog.ceo/api/breed/${numberSelection()}/images/random`)
     .then(response => response.json())
     .then(responseJson => 
       displayResults(responseJson))
@@ -18,11 +18,11 @@ function numberSelection() {
 
 function displayResults(responseJson) {
   console.log(responseJson);
-  console.log(fourLoop(responseJson))
+  
   //replace the existing image with the new one
   $('.results-img').replaceWith(
-    fourLoop(responseJson)
-  )
+    `<img src="${responseJson.message}" class="results-img">`)
+
   //display the results section
   $('.results').removeClass('hidden');
 }
@@ -39,7 +39,6 @@ function watchForm() {
   $('form').submit(event => {
     event.preventDefault();
     getDogImage();
-  $('#user-input').val() = 0;
   });
   
 }
