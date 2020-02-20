@@ -19,6 +19,7 @@ function numberSelection() {
 function displayResults(responseJson) {
   console.log(responseJson);
   console.log(fourLoop(responseJson))
+  $('.results-img').empty();
   //replace the existing image with the new one
   $('.results-img').replaceWith(
     fourLoop(responseJson)

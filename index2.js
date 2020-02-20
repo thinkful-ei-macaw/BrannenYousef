@@ -18,7 +18,7 @@ function numberSelection() {
 
 function displayResults(responseJson) {
   console.log(responseJson);
-  
+  $('.results-img').empty();
   //replace the existing image with the new one
   $('.results-img').replaceWith(
     `<img src="${responseJson.message}" class="results-img">`)
